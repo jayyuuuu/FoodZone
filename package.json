@@ -1,0 +1,30 @@
+{
+  "name": "reactt",
+  "version": "1.0.0",
+  "description": "This is my first react project",
+    "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayyuuuu/ReactBasics.git"
+  },
+  "keywords": [],
+  "author": "Jayzz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jayyuuuu/ReactBasics/issues"
+  },
+  "homepage": "https://github.com/jayyuuuu/ReactBasics#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+  "last 2 versions"
+  ]
+}
