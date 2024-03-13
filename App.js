@@ -1,35 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-/**
- * <div id= parent>
- *     <div id = child>
- *       <h1> I'm an h1 tag </h1>
- *       <h2> I'm an h2 tag </h2>
- *     </div>
- * <div id = child>
- *       <h1> I'm an h1 tag </h1>
- *       <h2> I'm an h2 tag </h2>
- *     </div>
- * </div>
- *
- */
+// React.createElement => React Element -JS Object => (render)HTML Element.
+// JSX - HTML like or XML like Syntex // Not HTML in JS.
+// JSX (transpiled before it reaches to JS)-  PARCEL - Babel
+// JSX => Babel transpiles it to React.CreateElement => React Element- JS object => (render) HTML Element.
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "Lets give it a try   "),
-    React.createElement("h2", {}, "I'm an h2 tag"),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "Are you there"),
-    React.createElement("h2", {}, "I'm an h2 tag"),
-  ]),
-]);
+//react element
+// const heading = <h1 className="head">React from JSX....</h1>;
 
-// const heading = React.createElement(
-//   "h1",
-//   { id: "heading", xyz: "abc" },
-//   "Hello World From React! "
-// );
+const title = (
+  <h1 className="head" tabIndex="5">
+    React from JSX....
+  </h1>
+);
+
+const HeadingComponent = () => {
+  return (
+    <div id="container">
+      {title}
+      <h1 className="heading"> I am React From React Functional Component</h1>
+    </div>
+  );
+};
+
+// console.log(heading);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+// root.render(heading);
+root.render(<HeadingComponent />);
