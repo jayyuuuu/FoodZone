@@ -50,3 +50,40 @@ what is parecl doing for us?
 # Component Composition:
 
 Composing two components. Using one component in another component is known as component composition.
+
+# Food_Web App Design
+
+- Components Our App Can have..
+-
+- Header
+- - Logo
+- - NavItems
+- Body
+- - search
+- - RestorantContainer
+- - Restorent Cards
+- Footer
+- - Copyright
+- - Links
+- - Address
+- - Contacts
+
+# There Are two types of exports and imports:
+
+1. Default Import/ Export :
+
+- Export : export default component;
+- Import : import component from "path";
+
+2. Named Import/ Export
+
+- - Export : export const component;
+  - Import : import {component} from "path";
+    -------Note: When you have to export multiple thing, Use named export otherwise use default export.
+
+# React Hooks
+
+there are 2 Important Hooks in react:
+
+- UseState() : Superpowerful state variable in react.
+- UseEffact() :
