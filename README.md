@@ -93,7 +93,8 @@ there are 2 Important Hooks in react:
 - UseEffact() :
   syntex: useEffect(()=>{callback function},[dependency array]);
 
---IN useEffect Hook-
+# IN useEffect Hook.
+
 -if no dependency Array => useEffect is called on every render.
 -if depencency Array is Empty [] => useEffect is called on initial render (Just Once).
 -if there is some dependency in the array => useEffect is called every time the dependency is updated.
