@@ -86,4 +86,33 @@ Composing two components. Using one component in another component is known as c
 there are 2 Important Hooks in react:
 
 - UseState() : Superpowerful state variable in react.
+  syntex: const [xyz] = useState("assignmnet to xyz");
+
+  ====> Whenever local state variable updates react trigggerd re-conciliation cycle (re-render the component).
+
 - UseEffact() :
+  syntex: useEffect(()=>{callback function},[dependency array]);
+
+--IN useEffect Hook-
+--if no dependency Array => useEffect is called on every render.
+--if depencency Array is Empty [] => useEffect is called on initial render (Just Once).
+--if there is some dependency in the array => useEffect is called every time the dependency is updated.
+if we have use btnNameReact in dependency array - [btnNameReact] => then useEffect is called every time the btnNameReact is updated.
+
+---- useEffect will definitely called after initial render everytime.
+
+# Routes:
+
+- npm i react-router-dom
+- import {createBrowserRouter}
+  syntex : const appRouter = createBrowserRouter([array of objects]);
+- ecah object defines a different path.
+
+import{RouterProvider} => proviedes the routing configuration.
+to render the routs component => root.render(<RouterProvider router = {appRouter}/>);
+
+# Errors:
+
+-useRouterError:
+-import UseRouterError
+------- const err = useRouterError() -> console.log(err);

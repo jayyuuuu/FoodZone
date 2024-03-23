@@ -9,7 +9,6 @@ const RestorentCard = (props) => {
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
     areaName,
     locality,
     sla,
