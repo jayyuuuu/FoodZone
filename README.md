@@ -118,3 +118,33 @@ to render the routs component => root.render(<RouterProvider router = {appRouter
 -useRouterError:
 -import UseRouterError
 ------- const err = useRouterError() -> console.log(err);
+
+# React Class Based Component LifeCycle :
+
+Constructor() --> render() --> ComponentDidMount().
+
+- If this parent Class has A child Component :
+
+Parent Constructor() -> Parent render() -> Child Constructor -> Child Render -> Child ComponentDidMount() -> Parent ComponentDidMoumt.
+
+- if this Parent has 2 child Components :
+
+* Parent Constructor
+* Parent Render - then form here the child class lifecycle begins-
+
+  - First Child Constructor
+  - First Child Render
+
+  - Second Child Constructor
+  - Second Child Render
+
+    // Render Phase for both the children ^
+
+  - < DOM UPDATED - IN SINGLE BATCH > : React is optimising the performance
+
+  // Commit Phase for both the children:
+
+  - First Child ComponentDidMount()
+  - Second Child ComponentDidMount()
+
+- Parent ComponentDidMount()

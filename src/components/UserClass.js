@@ -2,18 +2,19 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      count: 0,
-      count2: 2,
-    };
+    this.state = {};
+    // console.log(this.props.name + " :child Constructor ");
   }
+
+  componentDidMount() {
+    // console.log(this.props.name + ": child ComponentDidMount ");
+  }
+
   render() {
     const { name, location, contact } = this.props;
-    const { count, count2 } = this.state;
+    // console.log(this.props.name + " : child Render ");
     return (
       <div className="user-card">
-        <h2>Count: {count} </h2>
-        <h2>Count2: {count2} </h2>
         <h3>Name:{name} </h3>
         <h3>Loaction: {location}</h3>
         <h3>Contact: {contact}</h3>
