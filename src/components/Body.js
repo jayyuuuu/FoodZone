@@ -2,20 +2,13 @@ import RestorentCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 //Body Component
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filterdRestaurants, setFilterdRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  // IN useEffect Hook-
-  // if no dependency Array                   => useEffect is called on every render.
-  // if depencency Array is Empty []          => useEffect is called on initial render (Just Once).
-  // if there is some dependency in the array => useEffect is called every time the dependency is updated.
-  //            if we have use btnNameReact in dependency array - [btnNameReact] => then useEffect is called every time the btnNameReact is updated.
-
-  // useEffect will definitely called after initial render everytime.
-  //Whenever local state variable updates react trigggerd re-conciliation cycle (re-render the component)
   useEffect(() => {
     fetchData();
     console.log("data fatched");
@@ -37,16 +30,24 @@ const Body = () => {
     );
   };
 
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false)
+    return (
+      <h1>
+        Looks Like You are offline!!! Please check your Internet Connection.....
+      </h1>
+    );
+
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
   }
 
   return (
-    <div className="body">
-      <div className="filter">
-        <div className="search">
+    <div className="bg-violet-200">
+      <div className="flex m-2 justify-center border-2 p-2 shadow-lg">
+        <div className="search mx-20 bg-slate-500 rounded-md">
           <input
-            className="search-box"
+            className=" border-2 border-black"
             type="text"
             value={searchText}
             onChange={(e) => {
@@ -54,6 +55,7 @@ const Body = () => {
             }}
           ></input>
           <button
+            className="mx-5"
             onClick={() => {
               //Filter the Restaurant cards and update the UI
               //Search TExt
@@ -67,7 +69,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="bg-orange-300 px-4 rounded-md"
           onClick={() => {
             const filterdList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.2
@@ -79,7 +81,7 @@ const Body = () => {
           Top Rated Restaurent
         </button>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center">
         {filterdRestaurants.map((restaurant) => (
           <Link
             key={restaurant.info.id}

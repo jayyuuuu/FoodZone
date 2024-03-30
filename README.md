@@ -11,7 +11,7 @@ what is parecl doing for us?
 - Cashing - Faster Build. because of cashing.
 - Image Optimization
 - Minification
-- Bundling
+- Bundling => Buldler Bundles all the code into a single js file and give it onto the browser.
 - Compress
 - Consistent Hashing
 - Code Splitting
@@ -148,3 +148,22 @@ Parent Constructor() -> Parent render() -> Child Constructor -> Child Render -> 
   - Second Child ComponentDidMount()
 
 - Parent ComponentDidMount()
+
+# React Class Based Component LifeCycle (While making an API Call):
+
+---------MOUNTING LIFECYCLE-------
+
+- Constructor is called (updates the state with Dummy Data)
+- Render (Dummy Data)
+  ----- <HTML> is Loaded on UI with the Dummy Data.
+- ComponentDIdMount()
+  ----- <API Call>
+  ----- <this.setState> => to Updates the Dummy Data with API data.
+
+      - Render (With API Data)
+      - <HTML> is Updated with API data.
+
+  -ComponetDidUpdate(),
+
+  - ComponentDidUpdate :is always called after the update cycle.
+  - ComponentWillUnmount :is Called just before the component is unmount.
