@@ -1,7 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 
 //Res- Card Component
-const RestorentCard = (props) => {
+const RestaurantCard = (props) => {
   const { resData } = props;
   const {
     cloudinaryImageId,
@@ -14,22 +14,40 @@ const RestorentCard = (props) => {
     sla,
   } = resData?.info;
   return (
-    <div className="w-60 border border-black bg-zinc-300 p-2 m-2 shadow-sm rounded-md hover:bg-gray-400">
+    <div className="w-60 h-[380px] space-y-2 border border-black bg-gray-300 p-2 m-2 shadow-sm rounded-md hover:bg-gray-400 hover:shadow-xl">
       <img
-        className="rounded-md h-60 w-[100%]"
+        className="rounded-md h-40 w-[100%]"
         src={CDN_URL + cloudinaryImageId}
       ></img>
-      <div className="p-2 ">
-        <h3 className="text-lg text-black font-bold">{name}</h3>
+      <div className="p-2 h-16">
+        <h5 className="text-md text-black font-bold">{name}</h5>
       </div>
-      <h5>{cuisines.join(", ")}</h5>
-      <h5>{avgRating} Stars</h5>
-      <h6>{costForTwo}</h6>
-      <h6>{sla.deliveryTime} minutes</h6>
-      <h6>{areaName}</h6>
-      <h6>{locality}</h6>
+      <div className="h-12">
+        <h6>{cuisines.join(", ")}</h6>
+      </div>
+      <div className=" flex justify-between text-sm p-1 ">
+        <p className="bg-green-500 rounded-md px-1">{avgRating} 🌟</p>
+        <p>-{costForTwo}</p>
+        <p>-{sla.deliveryTime} minutes</p>
+      </div>
+      {/* <h6>{areaName}</h6> */}
+      {/* <h6>{locality}</h6> */}
     </div>
   );
 };
 
-export default RestorentCard;
+export const withPromotedLabel = (RestorentCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute bg-black text-white px-2 ml-4 mt-2 rounded-ee-xl">
+          {" "}
+          Promoted{" "}
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
+};
+
+export default RestaurantCard;

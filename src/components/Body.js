@@ -1,8 +1,9 @@
-import RestorentCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RestaurantcardPrompted } from "./RestaurantCard";
 //Body Component
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -21,6 +22,7 @@ const Body = () => {
 
     const json = await data.json();
     console.log(json);
+
     //OPTIONAL CHAINING
     setListOfRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -37,6 +39,8 @@ const Body = () => {
         Looks Like You are offline!!! Please check your Internet Connection.....
       </h1>
     );
+
+  const RestaurantcardPromoted = withPromotedLabel();
 
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
@@ -87,8 +91,11 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurant/" + restaurant.info.id}
           >
-            {" "}
-            <RestorentCard resData={restaurant} />{" "}
+            {restaurant.info.isOpen ? (
+              <RestaurantcardPromoted resData={restaurant} />
+            ) : (
+              <RestaurantCard resData={restaurant} />
+            )}
           </Link>
         ))}
       </div>
